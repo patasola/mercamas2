@@ -16,6 +16,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from './services/productos/productos.service';
 import { ErrorComponent } from './components/error/error.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductosService],
   bootstrap: [AppComponent]

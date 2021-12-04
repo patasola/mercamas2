@@ -4,29 +4,35 @@
     <div class="input-group rounded" style="margin-bottom: 40px;">
       <input type="search" class="form-control rounded" placeholder="Ingrese criterio de búsqueda" aria-label="Search"
       aria-describedby="search-addon" />
-      <button type="button" class="btn btn-outline-primary">Buscar</button>
+      <button type="button" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
     </div>
     </div>
     <table class="table" style="text-align:right;">
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Empanadas</td>
-            <td>$1.500</td>
-            <td>Carne</td>
-                <button type="button" style="margin-right: 20px;" class="btn btn-outline-info">Editar</button>
-                <button type="button" style="margin-right: 20px;" class="btn btn-outline-danger">Eliminar</button>
+            <tr *ngFor="let producto of productos; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.cantidad }}</td>
+              <td>{{ producto.categoria }}</td>
+              <td>{{ producto.descripcion }}</td>
+              <td>{{ producto.foto }}</td>
+              <td>${{ producto.valor }}</td>
+                <button type="button" style="margin-right: 20px;" class="btn btn-outline-info" (click)="editarProducto(producto)"><i class="bi bi-pencil"></i></button>
+                <button type="button" style="margin-right: 20px;" class="btn btn-outline-danger" (click)="eliminarProducto(producto.id)"><i class="bi bi-trash"></i></button>
               </tr>
         </tbody>
     </table>
+    <button type="button" class="btn btn-outline-success" routerLink="/formulario-producto">Agregar</button>
   </div>
 
 <!--<tr *ngFor="let producto of productos; let i = index">
     <th scope="row">{{ i + 1 }}</th>
-    <td>{{ producto.Nombre }}</td>
-    <td>{{ producto.Tipo }}</td>
-    <td>{{ producto.Precio }}</td>
-    <td>{{ producto.Descrip }}</td>
-    <td>{{ producto.Foto }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.cantidad }}</td>
+    <td>{{ producto.categoria }}</td>
+    <td>{{ producto.descripcion }}</td>
+    <td>{{ producto.foto }}</td>
+    <td>{{ producto.valor }}</td>
     <td><button type="button" class="btn btn-danger" (click)="eliminarCancion(cancion.idcanciones)">Eliminar</button></td>
     </tr>-->

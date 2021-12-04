@@ -8,7 +8,7 @@ const productosRoutes = (app) => {
     app.use('/', router)
 
     //middlewares
-    router.use(validarRol);
+    // router.use(validarRol);
 
     router.get('/obtenerProductos', obtenerProductos);
     router.get('/obtenerProducto/:id', obtenerProducto);

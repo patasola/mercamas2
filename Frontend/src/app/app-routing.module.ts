@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { TablaProductosComponent } from './components/tabla-productos/tabla-productos.component';
 import { ErrorComponent } from './components/error/error.component';
+import { RegistroProductosComponent } from './components/registro-productos/registro-productos.component';
 
 const routes: Routes = [
   {path: 'productos', component: TablaProductosComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'iniciar sesion', component: IniciarSesionComponent},
   {path: 'carrito', component: CarritoComponent},
+  {path: 'formulario-producto', component: RegistroProductosComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', component: NotFoundComponent}
 ];

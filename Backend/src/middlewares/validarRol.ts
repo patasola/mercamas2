@@ -1,4 +1,4 @@
-const validarRol = (req, res, next) => {
+const validarRol= (req, res, next) => {
     if(req.headers.isadmin) {
         next();
     }else {

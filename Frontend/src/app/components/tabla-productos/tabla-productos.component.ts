@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProdcutoModel } from 'src/app/models/producto';
+import { ProductoModel } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 
 @Component({
@@ -10,11 +10,12 @@ import { ProductosService } from 'src/app/services/productos/productos.service';
 })
 export class TablaProductosComponent implements OnInit {
 
-  public productos: ProdcutoModel[]= [];
+  public productos: ProductoModel[]= [];
 
   constructor(private ProductosService: ProductosService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
+    localStorage.clear();
     this.productos = await this.obtenerProductos();
   }
 
@@ -27,14 +28,28 @@ export class TablaProductosComponent implements OnInit {
     }
   }
 
+  public async obtenerProducto(): Promise<any>{
+    try{
+    const response = await this.ProductosService.obtenerProducto();
+    return response.datos;
+    }catch(error){
+      this.router.navigate(['/error']);
+    }
+  }
+  
   public eliminarProducto(id:number){
     this.ProductosService.eliminarProducto(id).then(async response => {
-      if(response.message === 'delete'){
+      if(response.message === 'deleted'){
         this.productos = await this.obtenerProductos();
         alert('Producto eliminado correctamente');
       }
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  public editarProducto(producto: ProductoModel){
+    localStorage.setItem('productoEditar', JSON.stringify(producto));
+    this.router.navigate(['/formulario-producto'])
   }
 }
