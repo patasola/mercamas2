@@ -1,9 +1,10 @@
 
 export interface ProdcutoModel{
-    idProductos: number,
-    Nombre: string,
-    Tipo: string,
-    Precio: number,
-    Descrip: string,
-    Foto: string
+    id: number,
+    nombre: string,
+    cantidad: number,
+    categoria: string,
+    descripcion: string,
+    foto: string,
+    valor: number
 }

@@ -15,6 +15,7 @@ export class TablaProductosComponent implements OnInit {
   constructor(private ProductosService: ProductosService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
+    localStorage.clear();
     this.productos = await this.obtenerProductos();
   }
 
@@ -36,5 +37,10 @@ export class TablaProductosComponent implements OnInit {
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  public editarProducto(producto: ProdcutoModel){
+    localStorage.setItem('productoEditar', JSON.stringify(producto));
+    this.router.navigate(['/formulario-producto'])
   }
 }
