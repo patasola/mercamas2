@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProdcutoModel } from 'src/app/models/producto';
+import { ProductoModel } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ProductosService } from 'src/app/services/productos/productos.service';
 export class RegistroProductosComponent implements OnInit {
 
   public formProductos: FormGroup = new FormGroup({});
-  public productoEditar: ProdcutoModel | null = null;
+  public productoEditar: ProductoModel | null = null;
 
   constructor(private formBuilder: FormBuilder, private productosService: ProductosService, private router: Router) { }
 
@@ -44,7 +44,7 @@ export class RegistroProductosComponent implements OnInit {
   }
 
   public actualizarProducto(){
-    const producto: ProdcutoModel = {
+    const producto: ProductoModel = {
       id: this.productoEditar?.id,
       ...this.formProductos.value
     }

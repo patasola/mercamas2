@@ -4,17 +4,16 @@ import config from './config/config';
 import tiendasRoutes from './routes/tiendas';
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((_, res, next) => {
-	res.header('Acess-Control-Allow-Origin','*');
-	res.header('Acess-Control-Allow-Headers','*');
-	res.header('Acess-Control-Allow-Methods','GET, POST, OPTIONS, PUT, DELETE');
-	res.header('Allow','GET, POST, OPTIONS, PUT, DELETE');
-	next();
+res.header('Access-Control-Allow-Origin', '*');
+res.header('Access-Control-Allow-Headers', '*');
+res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+next();
 });
 
 productosRoutes(app);

@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 export interface ProdcutoModel{
+=======
+export interface ProductoModel{
+>>>>>>> minusculas
     id: number,
     nombre: string,
     cantidad: number,
