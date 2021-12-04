@@ -68,5 +68,3 @@ app.get('/prueba', async(req, res, next) => {
 app.listen(config.PORT, () => {
     return console.log(`servidor corriendo sobre el puerto ${config.PORT}`)
 });
-
-console.log('prueba');
