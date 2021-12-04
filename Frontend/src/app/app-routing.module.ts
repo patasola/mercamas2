@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: 'carrito', component: CarritoComponent},
   {path: 'formulario-producto', component: RegistroProductosComponent},
   {path: 'error', component: ErrorComponent},
+  {path: '', component: InicioComponent },
   {path: '**', component: NotFoundComponent}
 ];
 
